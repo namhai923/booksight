@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <a href="{{ url_for('main_page') }}">Search Page</a>
+    <div class="col-xs-1">
+        <div><strong>Title:</strong> {{ book_content.title }}<div>
+        <div><strong>Author:</strong> {{ book_content.author }}</div>
+        <div><strong>Year:</strong> {{ book_content.year }}</div>
+        <div><strong>Isbn:</strong> {{ book_content.isbn }}</div>
+    </div>
+    <div><strong>Reviews:</strong></div>
+    {% for review in book_reviews %}
+    <div>
+        <u>User: {{ review.username }}</u><br>
+        Given Score: {{ review.score }}<br>
+        {{ review.review }}
+    </div>
+    {% endfor %}
+    <form action="{{ url_for('content', book_id = book_content.id) }}" method="post">
+        <div class="form-group">
+            <label><strong>Your review</strong></label>
+            <br>
+            <i><u>Score:</u></i>
+            <br>
+            <input type="radio" name="score" value="1"> Eh
+            <br>
+            <input type="radio" name="score" value="2"> Hmm
+            <br>
+            <input type="radio" name="score" value="3"> Not so gut
+            <br>
+            <input type="radio" name="score" value="4"> Gut
+            <br>
+            <input type="radio" name="score" value="5"> Ok quá là phê
+            <br>
+            <textarea name="review" class="form-control rounded-0" rows="3" placeholder="Please đừng viết dấu :)"></textarea>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <form action="{{url_for('login')}}" method="post">
+        <div class=form-group>
+            <label>Username</label>
+            <input class="form-control" type="text" name="username" placeholder="Enter your username">
+        </div>
+
+        <div class=form-group>
+            <label>Password</label>
+            <input class="form-control" type="password" name="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign-in</button>
+        {% if login_failed %}
+            <p style="color: red">Làm gì có tài khoản đó yohohohoho!!!!</p>
+        {% endif %}
+
+    </form>
+    <a href="{{ url_for('register') }}">Register if you không có account</a>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body%}
+<a href="{{ url_for('logout')}}">Log-out</a>
+<h5>User: {{ username }}</h5>
+<div class="container">
+    <form action="{{ url_for('main_page') }}" method="post">
+        <div class="form-group">
+            <label>
+                <h3>Tìm book</h3>
+            </label>
+            <input type="search" class="form-control" name="search_content" placeholder="Enter isbn, title or author">
+        </div>
+        <button class="btn btn-info">Search</button>
+    </form>
+    {% if not result == "failed" %}
+        {% for book in result %}
+            <div><a href="{{ url_for('content', book_id=book.id)}}">{{ book.title }}</a></div>
+        {% endfor %}
+    {% else %}
+        <h5>Không tìm thấy :(</h5>
+    {% endif %}
+</div>
+{% endblock %}

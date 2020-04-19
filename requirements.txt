@@ -1,0 +1,7 @@
+Flask
+Flask-Session
+psycopg2-binary
+SQLAlchemy
+Werkzeug==0.16.0
+requests==2.23.0
+Jinja2==2.11.1
