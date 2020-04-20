@@ -68,11 +68,11 @@ def main_page():
             result = db.execute("SELECT * FROM books WHERE UPPER(isbn) LIKE (:search) OR UPPER(title) LIKE (:search) OR UPPER(author) LIKE (:search)",
                                     {"search":"%"+search_content.upper()+"%"}).fetchall()
             if not result:
-                return render_template("home.html", username=session["user"].username, result="failed")
+                return render_template("index.html", username=session["user"].username, result="failed")
             else:
-                return render_template("home.html", username=session["user"].username, result=result)
+                return render_template("index.html", username=session["user"].username, result=result)
         else:
-            return render_template("home.html", username=session["user"].username, result=[])
+            return render_template("index.html", username=session["user"].username, result=[])
     else:
         return redirect(url_for("login"))
 
