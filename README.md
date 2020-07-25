@@ -1,29 +1,26 @@
-# Foobar
+# Set1: 
+## Bug: 
++ **areEqual** function return false even 2 set are equal.
+## Cannot test:
++ **unionOf** testing give a failed test, however unionOf test function use areEqual function so maybe unionOf function is right but test failed due to areEqual.
 
-Foobar is a Python library for dealing with word pluralization.
++ Same for **symmetricDifferenceOf** test function.
 
-## Installation
+# Set2:
+***Passed all test cases.***
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+# Set3:
+## Bug:
++ **insertItem** function insert duplicated item.
++ **removeItem** return false when remove an item which is the set.
+## Cannot test:
++ **areEqual** tesing give a failed test, however because insert and remove item work wrong so that test cases cannot response correctly.
++ Same for **symmetricDifferenceOf** test function.
++ Same for **unionOf** test function.(However unionOf edge cases testing - include at least 1 empty set works fine).
 
-```bash
-pip install foobar
-```
+# Set4:
+## Bug:
++ **symetricDifferenceOf** function works wrong for general cases. However edge cases testing - include at least 1 empty set passed the all the tests.
 
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/
+# Set5:
+***Passed all test cases.***
